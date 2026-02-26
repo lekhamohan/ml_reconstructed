@@ -13,14 +13,14 @@ The goal is to preserve and practice core ML/PyTorch exercises even when the ori
 ### Problem files
 - `pytorch_basics.py` — tensor operations (`reshape`, `mean`, `cat`, `mse_loss`)
 - `digit_classifier.py` — simple FFN
-- `nlp_intro.py` — *(to be documented / reconstructed)*
-- `sentiment_analysis.py` — *(to be documented / reconstructed)*
+- `nlp_intro.py` — dataset encoder
+- `sentiment_analysis.py` — simple pytorch model 
 
 ### Tests
 - `tests/test_pytorch_basics.py`
-- `tests/test_digit_classifier.py` *(add later)*
-- `tests/test_nlp_intro.py` *(add later)*
-- `tests/test_sentiment_analysis.py` *(add later)*
+- `tests/test_digit_classifier.py` 
+- `tests/test_nlp_intro.py` 
+- `tests/test_sentiment_analysis.py` 
 
 ## Conventions
 
