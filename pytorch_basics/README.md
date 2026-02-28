@@ -58,9 +58,16 @@ Public solutions that helped infer structure:
 - Python 3.9+ (recommended)
 - `torch`
 - `torchtyping`
+- `pytest`
 
-### Installation instructions
-- `python3 -m venv .venv`
-- `source .venv/bin/activate`
-- `pip install -r requirements.txt`
-- `pytest tests/test_pytorch_basics.py`
+### Installation / Setup
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python --version
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+### Run tests
+```pytest tests/test_pytorch_basics.py```
