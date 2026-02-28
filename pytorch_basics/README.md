@@ -59,7 +59,8 @@ Public solutions that helped infer structure:
 - `torch`
 - `torchtyping`
 
-### Install dependencies
-
-```bash
-pip install torch torchtyping
+### Installation instructions
+- `python3 -m venv .venv`
+- `source .venv/bin/activate`
+- `pip install -r requirements.txt`
+- `pytest tests/test_pytorch_basics.py`
