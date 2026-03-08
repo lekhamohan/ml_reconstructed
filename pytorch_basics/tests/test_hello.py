@@ -1,0 +1,1 @@
+assert out.shape == (4, 2), "Expected shape (4, 2), got {}".format(out.shape)

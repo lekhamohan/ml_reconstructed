@@ -33,10 +33,15 @@ from torchtyping import TensorType
 class Solution(nn.Module):
     def __init__(self, vocabulary_size: int):
         super().__init__()
-        raise NotImplementedError("Implement __init__()")
-
+        self.embedding_layer = nn.Embedding(vocabulary_size, 16)
+        self.linear_layer = nn.Linear(16, 1)
+        self.activation = nn.Sigmoid()
+    
     def forward(self, x: TensorType[int]) -> TensorType[float]:
-        raise NotImplementedError("Implement forward()")
+        embedding = self.embedding_layer(x)
+        pooled = embedding.mean(dim=1)
+        output = self.linear_layer(pooled)
+        return self.activation(output)
 
 
 """

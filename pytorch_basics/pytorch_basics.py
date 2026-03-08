@@ -34,24 +34,28 @@ from torchtyping import TensorType
 
 class Solution:
     def reshape(self, to_reshape: TensorType[float]) -> TensorType[float]:
-        raise NotImplementedError("Implement reshape()")
+        print(to_reshape.shape)  # Debug: Check input shape
+        return to_reshape.reshape(-1, 2)
+
 
     def average(self, to_avg: TensorType[float]) -> TensorType[float]:
-        raise NotImplementedError("Implement average()")
+        return to_avg.mean(dim=0)
 
     def concatenate(
         self,
         cat_one: TensorType[float],
         cat_two: TensorType[float],
     ) -> TensorType[float]:
-        raise NotImplementedError("Implement concatenate()")
+        return torch.cat(
+            (cat_one, cat_two), dim=1)
 
     def get_loss(
         self,
         prediction: TensorType[float],
         target: TensorType[float],
     ) -> TensorType[float]:
-        raise NotImplementedError("Implement get_loss()")
+        mse_loss = torch.nn.functional.mse_loss(prediction, target)
+        return mse_loss
 
 
 """

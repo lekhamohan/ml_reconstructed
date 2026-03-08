@@ -35,12 +35,24 @@ from torchtyping import TensorType
 
 
 class Solution(nn.Module):
-    def __init__(self):
+    def __init__(self, input_dim=784, hidden_dim=512, out_features=10):
         super().__init__()
-        raise NotImplementedError("Implement __init__()")
+        self._input_dim = input_dim
+        self._hidden_dim = hidden_dim
+        self._out_features = out_features
+
+        self.linear_layer_1 = nn.Linear(self._input_dim, self._hidden_dim)
+        self.linear_layer_2 = nn.Linear(self._hidden_dim, self._out_features)
+        self.net = nn.Sequential(
+            self.linear_layer_1,
+            nn.ReLU(),
+            nn.Dropout(p=0.2),
+            self.linear_layer_2,
+            nn.Sigmoid()
+        )
 
     def forward(self, images: TensorType[float]) -> TensorType[float]:
-        raise NotImplementedError("Implement forward()")
+        return self.net(images)
 
 
 """

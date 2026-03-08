@@ -36,7 +36,29 @@ from torchtyping import TensorType
 
 class Solution:
     def get_dataset(self, positive: List[str], negative: List[str]) -> TensorType[float]:
-        raise NotImplementedError("Implement get_dataset()")
+        vocab = set()
+
+        for sentence in positive + negative:
+            vocab.update(sentence.split())
+
+        vocab = sorted(vocab)
+        word2id = {w: idx for idx, w in enumerate(vocab, start=1)}
+         
+        def encode(sentence_split: list[str])->TensorType[float]:
+            return torch.tensor([word2id[s] for s in sentence_split])
+        
+        encoded_dataset = []
+        for sentence in positive + negative:
+            encoded_dataset.append(encode(sentence.split()))
+        
+            
+        return nn.utils.rnn.pad_sequence(encoded_dataset, batch_first=True)
+    
+
+
+
+
+        
 
 
 """
